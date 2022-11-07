@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import React from "react";
-import LeftWindow from "../components/LeftWindow/index";
-import RightWindow from "../components/RightWindow/index";
-import TopBar from "../components/TopBar/index";
+import LeftWindow from "../components/LeftWindow";
+import RightWindow from "../components/RightWindow";
+import TopBar from "../components/NavBar";
 
 const Chat = () => {
   return (

@@ -1,4 +1,7 @@
 import { Box } from "@mui/material";
+import BottomBar from "./BottomBar";
+import TopBar from "./TopBar";
+import MessageField from "./MessageField";
 
 const RightWindow = () => {
   return (
@@ -6,10 +9,12 @@ const RightWindow = () => {
       sx={{
         width: "80%",
         height: "100%",
-        // backgroundColor: "green",
+        position: "relative",
       }}
     >
-      right
+      <TopBar />
+      <MessageField></MessageField>
+      <BottomBar />
     </Box>
   );
 };
