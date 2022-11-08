@@ -13,7 +13,7 @@ const RightWindow = () => {
       }}
     >
       <TopBar />
-      <MessageField></MessageField>
+      <MessageField />
       <BottomBar />
     </Box>
   );

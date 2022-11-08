@@ -21,7 +21,7 @@ const chats = [
     name: "Kabin",
     message: "lorem ipsum dolor sit amet",
     time: "11:14 AM",
-    _id: "zlxv",
+    _id: "6368f28c77b679d2a2b1b60a",
   },
 ];
 export default chats;
