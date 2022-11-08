@@ -1,7 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import GlobalContext from "../../contexts/GlobalContext";
+import { useContext } from "react";
 
 const ChatRoom = (props) => {
+  const { room, setRoom } = useContext(GlobalContext);
   return (
     <Box
       sx={{
@@ -11,6 +14,9 @@ const ChatRoom = (props) => {
           backgroundColor: "#BBC6C8",
           //   (theme) => theme.palette.gray.main,
         },
+      }}
+      onClick={() => {
+        setRoom(props.chat);
       }}
     >
       <Box sx={{ display: "flex", padding: "10px" }}>
@@ -33,7 +39,7 @@ const ChatRoom = (props) => {
                 maxWidth: "180px",
               }}
             >
-              {props.chat.message}
+              {props.chat.latestMessage}
             </Typography>
             <Typography
               sx={{

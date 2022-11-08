@@ -1,13 +1,15 @@
 import { Stack } from "@mui/material";
 import Message from "./Message";
 import messages from "../../data/messages";
+import { useContext } from "react";
+import GlobalContext from "../../contexts/GlobalContext";
 
 const MessageField = () => {
-  const selectedRoom = "6368f26677b679d2a2b1b607";
-  const messagesOfChat = messages.filter(
-    (message) => message.room == selectedRoom
+  const { room } = useContext(GlobalContext);
+
+  const messagesOfSelectedRoom = messages.filter(
+    (message) => message.room === room._id
   );
-  console.log(messagesOfChat);
   return (
     <Stack
       sx={{
@@ -18,7 +20,7 @@ const MessageField = () => {
         pt: 2,
       }}
     >
-      {messagesOfChat.map((message) => (
+      {messagesOfSelectedRoom.map((message) => (
         <Message key={message._id} message={message} />
       ))}
     </Stack>

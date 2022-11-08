@@ -1,27 +1,27 @@
 const chats = [
   {
     name: "Saakar",
-    message: "Malai khana na Kura hai khau",
+    latestMessage: "Malai khana na Kura hai khau",
     time: "11:14 AM",
-    _id: "adsfd",
+    _id: "6360057b5b21d25339bcf11d",
   },
   {
     name: "Sagar",
-    message: "lorem ipsum dolor sit amet",
+    latestMessage: "lorem ipsum dolor sit amet",
     time: "11:14 AM",
-    _id: "kjoij",
+    _id: "636006525b21d25339bcf13c",
   },
   {
     name: "Sajag",
-    message: "Wake up bitch",
+    latestMessage: "Wake up bitch",
     time: "6:20 AM",
-    _id: "qioejfo",
+    _id: "635ff6c25b21d25339bcf04e",
   },
   {
     name: "Kabin",
-    message: "lorem ipsum dolor sit amet",
+    latestMessage: "we will dispatch your food as soon as it is ready",
     time: "11:14 AM",
-    _id: "6368f28c77b679d2a2b1b60a",
+    _id: "6368f26677b679d2a2b1b607",
   },
 ];
 export default chats;
