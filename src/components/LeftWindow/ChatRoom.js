@@ -2,9 +2,12 @@ import { Box, Typography } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import GlobalContext from "../../contexts/GlobalContext";
 import { useContext } from "react";
+import socket from "../../utils/socket";
+import { formatTime } from "../../utils/formatTime";
 
 const ChatRoom = (props) => {
-  const { room, setRoom } = useContext(GlobalContext);
+  const { setRoom, latestMessages } = useContext(GlobalContext);
+
   return (
     <Box
       sx={{
@@ -17,6 +20,7 @@ const ChatRoom = (props) => {
       }}
       onClick={() => {
         setRoom(props.chat);
+        socket.emit("join-room", props.chat._id);
       }}
     >
       <Box sx={{ display: "flex", padding: "10px" }}>
@@ -39,7 +43,10 @@ const ChatRoom = (props) => {
                 maxWidth: "180px",
               }}
             >
-              {props.chat.latestMessage}
+              {/* If there is latest message, show that. Otherwise, show the message coming from the data */}
+              {latestMessages && latestMessages[props.chat._id]
+                ? latestMessages[props.chat._id].message
+                : props.chat.latestMessage}
             </Typography>
             <Typography
               sx={{
@@ -47,7 +54,10 @@ const ChatRoom = (props) => {
                 ml: 1,
               }}
             >
-              {props.chat.time}
+              {/* If there is time of the latest message, show that. Otherwise, show the time coming from the data */}
+              {latestMessages && latestMessages[props.chat._id]
+                ? formatTime(latestMessages[props.chat._id].time)
+                : formatTime(props.chat.time)}
             </Typography>
           </Box>
         </Box>

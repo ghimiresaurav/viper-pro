@@ -6,7 +6,6 @@ import GlobalContext from "../../contexts/GlobalContext";
 
 const MessageField = () => {
   const { room } = useContext(GlobalContext);
-
   const messagesOfSelectedRoom = messages.filter(
     (message) => message.room === room._id
   );

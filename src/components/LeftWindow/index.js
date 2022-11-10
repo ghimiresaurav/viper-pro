@@ -1,11 +1,10 @@
-import { Box, List, ListItemButton, Typography } from "@mui/material";
+import { Box, List, ListItemButton } from "@mui/material";
 import { useState } from "react";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import chats from "../../data/chats";
 import ChatRoom from "./ChatRoom";
 
-const LeftWindow = (props) => {
-  const [index, setIndex] = useState("adsfd");
+const LeftWindow = () => {
+  const [index, setIndex] = useState("");
   return (
     <Box
       sx={{
