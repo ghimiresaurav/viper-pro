@@ -5,10 +5,14 @@ import { useContext } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
 
 const MessageField = () => {
-  const { room } = useContext(GlobalContext);
-  const messagesOfSelectedRoom = messages.filter(
-    (message) => message.room === room._id
+  const { room, newMessages } = useContext(GlobalContext);
+  // const messagesOfSelectedRoom = [...messages, ...newMessages].filter(
+  const messagesOfSelectedRoom = newMessages.filter(
+    (message) => message && message.room && message.room === room._id
   );
+  const xxmessages = messagesOfSelectedRoom.map((message) => message.body);
+  console.log(xxmessages);
+
   return (
     <Stack
       sx={{

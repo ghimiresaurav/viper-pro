@@ -6,15 +6,33 @@ import GlobalContext from "../../contexts/GlobalContext";
 
 const BottomBar = () => {
   const [input, setInput] = useState("");
-  const { room } = useContext(GlobalContext);
+  const {
+    room,
+    user,
+    newMessages,
+    setNewMessages,
+    latestMessages,
+    setLatestMessages,
+  } = useContext(GlobalContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    socket.emit("new-message", {
-      sender: localStorage.getItem("user"),
-      message: input,
+    const newMessageData = {
+      sender: user,
+      body: input,
       room: room._id,
+      _id: Math.random() * 100000,
+      time: new Date(),
+    };
+    socket.emit("new-message", newMessageData);
+    setLatestMessages({
+      ...latestMessages,
+      [newMessageData.room]: {
+        body: newMessageData.body,
+        time: newMessageData.time,
+      },
     });
+    setNewMessages([...newMessages, newMessageData]);
   };
 
   return (

@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import { useContext } from "react";
+import GlobalContext from "../../contexts/GlobalContext";
 
 const Message = (props) => {
-  const userId = "6306fa4ecf3951826a1b272f";
-  const isSent = props.message.sender === userId;
+  const { user } = useContext(GlobalContext);
+  const isSent = props.message.sender === user;
   return (
     <Box
       sx={{
@@ -26,9 +28,7 @@ const Message = (props) => {
         }}
         variant="p"
       >
-        {props.message && props.message.body
-          ? props.message.body
-          : "adsflkjasdofijasdoifjsadf"}
+        {props.message.body}
       </Typography>
     </Box>
   );

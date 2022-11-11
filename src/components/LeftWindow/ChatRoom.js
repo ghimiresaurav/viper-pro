@@ -45,7 +45,7 @@ const ChatRoom = (props) => {
             >
               {/* If there is latest message, show that. Otherwise, show the message coming from the data */}
               {latestMessages && latestMessages[props.chat._id]
-                ? latestMessages[props.chat._id].message
+                ? latestMessages[props.chat._id].body
                 : props.chat.latestMessage}
             </Typography>
             <Typography
